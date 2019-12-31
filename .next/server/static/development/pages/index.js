@@ -93,6 +93,55 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/SuperComponent.js":
+/*!**************************************!*\
+  !*** ./components/SuperComponent.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layouts/BaseLayout */ "./components/layouts/BaseLayout.js");
+var _jsxFileName = "/home/vakilsearch/Desktop/vakilsearch-website-react/components/SuperComponent.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+class SuperComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor() {
+    super();
+    this.someVariable = 'some text';
+  }
+
+  alertname(title) {
+    alert(title);
+  }
+
+  render() {
+    return __jsx(_components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      },
+      __self: this
+    }, __jsx("h1", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }, "Welcome to Blogs Page"));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SuperComponent);
+
+/***/ }),
+
 /***/ "./components/layouts/BaseLayout.js":
 /*!******************************************!*\
   !*** ./components/layouts/BaseLayout.js ***!
@@ -2062,26 +2111,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layouts/BaseLayout */ "./components/layouts/BaseLayout.js");
+/* harmony import */ var _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SuperComponent */ "./components/SuperComponent.js");
 var _jsxFileName = "/home/vakilsearch/Desktop/vakilsearch-website-react/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+
+class Index extends _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__["default"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'i am index page'
+    };
+    console.log('constructor');
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
+  updateTitle() {
+    this.setState({
+      title: 'i am updated index page'
+    });
+  }
+
   render() {
+    debugger;
+    const {
+      title
+    } = this.state;
     return __jsx(_components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 33
       },
       __self: this
     }, __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 34
       },
       __self: this
-    }, "Welcome to Index Page"));
+    }, "Welcome to Index Page"), __jsx("h2", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, title), __jsx("button", {
+      onClick: () => this.updateTitle(),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }, "Change Title"));
   }
 
 }

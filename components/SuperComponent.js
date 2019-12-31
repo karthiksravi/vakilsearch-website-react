@@ -1,0 +1,20 @@
+import React from 'react';
+import BaseLayout from '../components/layouts/BaseLayout';
+class SuperComponent extends React.Component{
+	constructor(){
+		super();
+		this.someVariable = 'some text';
+	}
+	alertname(title){
+		alert(title);
+	}
+	render(){
+		return(
+	  	 <BaseLayout>
+		  	<h1>Welcome to Blogs Page</h1>
+		  	
+	  	</BaseLayout>
+	  	)
+	}
+}
+export default SuperComponent;
