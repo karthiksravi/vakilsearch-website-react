@@ -8,13 +8,13 @@ class SuperComponent extends React.Component{
 	alertname(title){
 		alert(title);
 	}
-	render(){
-		return(
-	  	 <BaseLayout>
-		  	<h1>Welcome to Blogs Page</h1>
+	// render(){
+	// 	return(
+	//   	 <BaseLayout>
+	// 	  	<h1>Welcome to Blogs Page</h1>
 		  	
-	  	</BaseLayout>
-	  	)
-	}
+	//   	</BaseLayout>
+	//   	)
+	// }
 }
 export default SuperComponent;

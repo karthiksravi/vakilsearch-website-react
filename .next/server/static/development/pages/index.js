@@ -105,8 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layouts/BaseLayout */ "./components/layouts/BaseLayout.js");
-var _jsxFileName = "/home/vakilsearch/Desktop/vakilsearch-website-react/components/SuperComponent.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
@@ -118,23 +116,14 @@ class SuperComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
   alertname(title) {
     alert(title);
-  }
+  } // render(){
+  // 	return(
+  //   	 <BaseLayout>
+  // 	  	<h1>Welcome to Blogs Page</h1>
+  //   	</BaseLayout>
+  //   	)
+  // }
 
-  render() {
-    return __jsx(_components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 13
-      },
-      __self: this
-    }, __jsx("h1", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14
-      },
-      __self: this
-    }, "Welcome to Blogs Page"));
-  }
 
 }
 
@@ -405,6 +394,36 @@ module.exports = __webpack_require__(/*! core-js/library/fn/symbol/iterator */ "
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/weak-map */ "core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 /***/ }),
 
@@ -2108,23 +2127,50 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layouts/BaseLayout */ "./components/layouts/BaseLayout.js");
-/* harmony import */ var _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SuperComponent */ "./components/SuperComponent.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layouts/BaseLayout */ "./components/layouts/BaseLayout.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_SuperComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/SuperComponent */ "./components/SuperComponent.js");
+
 var _jsxFileName = "/home/vakilsearch/Desktop/vakilsearch-website-react/pages/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
-class Index extends _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__["default"] {
+
+class Index extends _components_SuperComponent__WEBPACK_IMPORTED_MODULE_4__["default"] {
+  static async getInitialProps() {
+    let userData = {};
+
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('https://jsonplaceholder.typicode.com/todos/1');
+      userData = response.data;
+    } catch (err) {
+      console.error(err);
+    }
+
+    return {
+      initialData: [1, 2, 3, 4],
+      userData
+    };
+  }
+
   constructor(props) {
     super(props);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "updateTitle", () => {
+      this.setState({
+        title: 'i am updated index page'
+      });
+    });
+
     this.state = {
       title: 'i am index page'
     };
-    console.log('constructor');
   }
 
   componentDidMount() {
@@ -2139,40 +2185,44 @@ class Index extends _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__["def
     console.log('componentWillUnmount');
   }
 
-  updateTitle() {
-    this.setState({
-      title: 'i am updated index page'
-    });
-  }
-
   render() {
-    debugger;
+    // debugger;
     const {
       title
     } = this.state;
-    return __jsx(_components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    const {
+      userData,
+      initialData
+    } = this.props;
+    return __jsx(_components_layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 47
       },
       __self: this
     }, __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 48
       },
       __self: this
     }, "Welcome to Index Page"), __jsx("h2", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 49
       },
       __self: this
-    }, title), __jsx("button", {
-      onClick: () => this.updateTitle(),
+    }, title), __jsx("h2", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 50
+      },
+      __self: this
+    }, userData.title), __jsx("button", {
+      onClick: this.updateTitle,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
       },
       __self: this
     }, "Change Title"));
@@ -2206,6 +2256,17 @@ class Index extends _components_SuperComponent__WEBPACK_IMPORTED_MODULE_2__["def
 
 module.exports = __webpack_require__(/*! /home/vakilsearch/Desktop/vakilsearch-website-react/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
 
 /***/ }),
 
