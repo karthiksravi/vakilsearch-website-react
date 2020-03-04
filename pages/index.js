@@ -21,20 +21,18 @@ class Index extends SuperComponent{
 		
 		super(props);
 		
-		this.state = {
-			title: 'i am index page'
-		}
+		this.state = { title: 'i am index page', date: '03.03.2020' }
 	}
-	componentDidMount(){
-		console.log('componentDidMount');
+	// componentDidMount(){
+	// 	console.log('componentDidMount');
 		
-	}
-	componentDidUpdate(){
-		console.log('componentDidUpdate');
-	}
-	componentWillUnmount(){
-		console.log('componentWillUnmount');
-	}
+	// }
+	// componentDidUpdate(){
+	// 	console.log('componentDidUpdate');
+	// }
+	// componentWillUnmount(){
+	// 	console.log('componentWillUnmount');
+	// }
 	updateTitle = () => {
 		this.setState({title:'i am updated index page'});
 	}
@@ -42,12 +40,14 @@ class Index extends SuperComponent{
 	render(){
 		// debugger;
 		const { title } = this.state;
+		const { date } = this.state;
 		const { userData, initialData } = this.props;
 		return(
 		<BaseLayout>
 		  	<h1>Welcome to Index Page</h1>
-		  	<h2>{ title }</h2>		
-		  	<h2>{ userData.title }</h2>		
+		  	<h2>{ title }</h2>				
+		  	<h2>{ date }</h2>				
+		  	<h2>{ userData.title }</h2>				
 		  	<button onClick={this.updateTitle}>Change Title</button>
 	  	</BaseLayout>
 	  	)
