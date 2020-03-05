@@ -11570,7 +11570,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 7:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fcv&absolutePagePath=%2Fhome%2Fvakilsearch%2FDesktop%2Fvakilsearch-website-react%2Fpages%2Fcv.js ***!
   \**********************************************************************************************************************************************/
@@ -11593,5 +11593,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[7,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=cv.js.map

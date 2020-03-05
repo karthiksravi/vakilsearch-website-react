@@ -18,14 +18,30 @@ class Index extends SuperComponent{
 		return {initialData: [1,2,3,4], userData};
 	}
 	constructor(props){
-		
 		super(props);
-		
-		this.state = { title: 'i am index page', date: '03.03.2020' }
+		this.state = { fullName: "karthik", email: "karthik@gmail.com" }
+	}
+	handleSubmit = (event) => {
+		event.preventDefault()
+		const data = this.state
+		console.log("Name", data)
+	}
+	handleChange = (event) => {
+		event.preventDefault()
+		this.setState({
+			fullName: event.target.value
+		})
+	}
+	handleChange1 = (event) => {
+		event.preventDefault()
+		this.setState({
+			email: event.target.value
+		})
 	}
 	// componentDidMount(){
-	// 	console.log('componentDidMount');
-		
+	// 	this.setState({
+	// 		fullName: "justin"
+	// 	})
 	// }
 	// componentDidUpdate(){
 	// 	console.log('componentDidUpdate');
@@ -38,22 +54,23 @@ class Index extends SuperComponent{
 	}
 
 	render(){
-		// debugger;
-		const { title } = this.state;
-		const { date } = this.state;
+		const {fullName} = this.state;
+		const {email} = this.state;
 		const { userData, initialData } = this.props;
 		return(
 		<BaseLayout>
 		  	<h1>Welcome to Index Page</h1>
-		  	<h2>{ title }</h2>				
-		  	<h2>{ date }</h2>				
+		  	<p>Full name is: {fullName}</p>			
+		  	<p>Full name is: {email}</p>			
 		  	<h2>{ userData.title }</h2>				
 		  	<button onClick={this.updateTitle}>Change Title</button>
+		  	<form onSubmit={this.handleSubmit}>
+		  	<p><input type="text" placeholder="name" value={fullName} onChange={this.handleChange} /></p>
+		  	<p><input type="text" placeholder="name" value={email} onChange={this.handleChange1} /></p>
+		  	<p><button>Send</button></p>
+		  	</form>
 	  	</BaseLayout>
 	  	)
 	}
 }
 export default Index;
-// <Header title="I am a Header">
-// 		  		<h1>I am a Headernew</h1>
-// 		  	</Header>
